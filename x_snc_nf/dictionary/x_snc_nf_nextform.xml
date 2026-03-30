@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="9e09cd218793d110e942a9773cbb35da" extends="sys_metadata" label="NextForm" max_length="40" name="x_snc_nf_nextform" type="collection">
         <element label="Generator" max_length="32" name="generator" reference="x_snc_nf_generator" type="reference"/>
-        <element label="Name" max_length="40" name="name" type="string"/>
         <element label="Processor" max_length="32" name="processor" reference="x_snc_nf_processor" type="reference"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
         <index name="index">
             <element name="generator"/>
         </index>

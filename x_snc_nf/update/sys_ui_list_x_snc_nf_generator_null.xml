@@ -46,11 +46,14 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>6acf09e58793d110e942a9773cbb359e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_nf_generator</sys_name>
             <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
             <sys_policy/>
             <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_nf_generator_null</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-03-26 15:11:41</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

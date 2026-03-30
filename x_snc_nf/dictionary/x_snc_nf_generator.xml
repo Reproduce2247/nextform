@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="d327c5ad8753d110e942a9773cbb351a" extends="sys_metadata" label="Generator" max_length="40" name="x_snc_nf_generator" type="collection">
-        <element label="Name" max_length="40" name="name" type="string"/>
         <element default="(function generateNextFormObject () {&#13;&#10;&#13;&#10;})();" label="Script" mandatory="true" max_length="8000" name="script" type="script"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
     </element>
 </database>

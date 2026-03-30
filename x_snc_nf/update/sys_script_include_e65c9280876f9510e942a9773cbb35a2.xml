@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>NextColumn script include definition</description>
+        <mobile_callable>false</mobile_callable>
         <name>NextColumn</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var NextColumn = Class.create();
 NextColumn.prototype =  new Array;
 Object.assign(NextColumn.prototype, {

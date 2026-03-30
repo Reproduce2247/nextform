@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>NextScreen script include definition</description>
+        <mobile_callable>false</mobile_callable>
         <name>NextScreen</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var NextScreen = Class.create();
 NextScreen.prototype = new Array;
 Object.assign(NextScreen.prototype, {

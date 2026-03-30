@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Generate NextForm Object from JSON</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var nfId = request.pathParams.nextform_id;
+    var requestBody = request.body;
+    var requestData = requestBody.data;
+    var input;
+    if (requestData && Object.prototype.hasOwnProperty.call(requestData, 'input')) {
+        input = requestData.input;
+    }
+    var form = new NFAPIHelper().generate(nfId, input);
+    response.setBody(form);
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_nf/nextform/generate/{nextform_id}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/generate/{nextform_id}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-26 19:50:40</sys_created_on>
+        <sys_id>20d4b4b6c3b3f21086f39f3ed4013171</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Generate NextForm Object from JSON</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_ws_operation_20d4b4b6c3b3f21086f39f3ed4013171</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-26 19:50:40</sys_updated_on>
+        <web_service_definition display_value="NextForm">d6f27ee487971110e942a9773cbb355d</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

@@ -2,6 +2,7 @@
     <sys_ux_component_preset action="INSERT_OR_UPDATE">
         <component display_value="Form">cdf8d604a3fda59e69ccd6dd407263d6</component>
         <controller display_value="NextForm">bc6738a18753d110e942a9773cbb3583</controller>
+        <controller_dependencies/>
         <description>Display a series of ephemeral forms sequentially, based on a NextForm definition.</description>
         <event_handlers>[&#13;
   {&#13;
@@ -57,7 +58,11 @@
     ]&#13;
   }&#13;
 ]</event_handlers>
+        <hide_component/>
+        <is_repeated_element>false</is_repeated_element>
+        <is_repeater>false</is_repeater>
         <name>NextForm</name>
+        <parent_repeater_preset/>
         <properties>{&#13;
   "sections": {&#13;
     "type": "DATA_OUTPUT_BINDING",&#13;
@@ -141,6 +146,7 @@
       "value" : true&#13;
   }&#13;
 }</properties>
+        <repeat_with/>
         <required_translations>[ ]</required_translations>
         <sys_class_name>sys_ux_component_preset</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>

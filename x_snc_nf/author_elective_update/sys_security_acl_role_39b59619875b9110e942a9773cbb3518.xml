@@ -42,13 +42,14 @@
         <update_guid_history>39b59619fd5b9110709af47afa73371a:1334147977</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="x.snc.nextform.*.canvas_user">f9185699875b9110e942a9773cbb3581</sys_audit_delete>
+        <sys_audit_delete display_value="">f9185699875b9110e942a9773cbb3581</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-20 13:35:12</sys_created_on>
         <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
         <sys_id>94f18637e7d44c34aba9f6eb7e631e44</sys_id>
         <sys_metadata>39b59619875b9110e942a9773cbb3518</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>x.snc.nextform.*.canvas_user</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_parent/>
@@ -57,5 +58,7 @@
         <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
         <sys_update_name>sys_security_acl_role_39b59619875b9110e942a9773cbb3518</sys_update_name>
         <sys_update_version display_value="sys_security_acl_role_39b59619875b9110e942a9773cbb3518">fdb59619875b9110e942a9773cbb351a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-26 15:11:43</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

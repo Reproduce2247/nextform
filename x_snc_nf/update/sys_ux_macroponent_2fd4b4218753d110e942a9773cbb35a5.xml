@@ -1,601 +1,668 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
     <sys_ux_macroponent action="INSERT_OR_UPDATE">
         <associated_types/>
+        <bundles>[]</bundles>
         <category>controller</category>
         <component_dependencies/>
-        <composition/>
+        <composition>[]</composition>
         <da_relay_models/>
-        <data>[&#13;
-{&#13;
-    "definition":&#13;
-    {&#13;
-        "id": "f953f22887971110e942a9773cbb3528",&#13;
-        "type": "REST"&#13;
-    },&#13;
-    "dependencies":&#13;
-    {},&#13;
-    "elementId": "get_nextform_object",&#13;
-    "elementLabel": "Get NextForm Object",&#13;
-    "eventMappings": [&#13;
-    {&#13;
-        "eventMappingId": "claqfhhyzjjaabbhhcddbhhsddcqwkanv",&#13;
-        "isConfiguration": false,&#13;
-        "offRowStorageId": null,&#13;
-        "sourceEventApiName": "sn_uxf.DATA_FETCH_SUCCEEDED",&#13;
-        "sourceEventCorrelationId": null,&#13;
-        "sourceEventDefinition":&#13;
-        {&#13;
-            "apiName": "sn_uxf.DATA_FETCH_SUCCEEDED",&#13;
-            "id": null,&#13;
-            "type": "UXEVENT"&#13;
-        },&#13;
-        "sourceEventSysId": null,&#13;
-        "targets": [&#13;
-        {&#13;
-            "broker": null,&#13;
-            "clientScript":&#13;
-            {&#13;
-                "sysId": "ae52562d8757d110e942a9773cbb355a"&#13;
-            },&#13;
-            "conditional": null,&#13;
-            "declarativeAction": null,&#13;
-            "event": null,&#13;
-            "operation": null,&#13;
-            "targetId": "claqfhhyzjjaabbhhdddbhhsduggherccjj",&#13;
-            "type": "CLIENT_SCRIPT"&#13;
-        }]&#13;
-    }],&#13;
-    "inputValues":&#13;
-    {&#13;
-        "nextform_id":&#13;
-        {&#13;
-            "type": "CONTEXT_BINDING",&#13;
-            "binding":&#13;
-            {&#13;
-                "address": [&#13;
-                    "nextFormSysId"&#13;
-                ],&#13;
-                "category": "props"&#13;
-            }&#13;
-        }&#13;
-    },&#13;
-    "readEvaluationMode": "EAGER"&#13;
-},&#13;
-{&#13;
-    "definition":&#13;
-    {&#13;
-        "id": "d0d002ad8717d110e942a9773cbb35af",&#13;
-        "type": "REST"&#13;
-    },&#13;
-    "dependencies":&#13;
-    {},&#13;
-    "elementId": "process_nextform_data",&#13;
-    "elementLabel": "Process NextForm Data",&#13;
-    "eventMappings": [&#13;
-    {&#13;
-        "eventMappingId": "clbbbvhhquhhaaccdwddbhhvffeeeyhhqaad",&#13;
-        "isConfiguration": false,&#13;
-        "offRowStorageId": null,&#13;
-        "sourceEventApiName": "sn_uxf.DATA_OP_INITIATED",&#13;
-        "sourceEventCorrelationId": null,&#13;
-        "sourceEventDefinition":&#13;
-        {&#13;
-            "apiName": "sn_uxf.DATA_OP_INITIATED",&#13;
-            "id": null,&#13;
-            "type": "UXEVENT"&#13;
-        },&#13;
-        "sourceEventSysId": null,&#13;
-        "targets": [&#13;
-        {&#13;
-            "broker": null,&#13;
-            "clientScript":&#13;
-            {&#13;
-                "sysId": "34d217cc87ef9510e942a9773cbb352e"&#13;
-            },&#13;
-            "conditional": null,&#13;
-            "declarativeAction": null,&#13;
-            "event": null,&#13;
-            "operation": null,&#13;
-            "targetId": "clbbbvhhquhhaaccdxddbhhvshtwhhzsn",&#13;
-            "type": "CLIENT_SCRIPT"&#13;
-        }]&#13;
-    },&#13;
-    {&#13;
-        "eventMappingId": "clbbbuzkwhhaaccdiddbhhvdgizjbbth",&#13;
-        "isConfiguration": false,&#13;
-        "offRowStorageId": null,&#13;
-        "sourceEventApiName": "sn_uxf.DATA_OP_SUCCEEDED",&#13;
-        "sourceEventCorrelationId": null,&#13;
-        "sourceEventDefinition":&#13;
-        {&#13;
-            "apiName": "sn_uxf.DATA_OP_SUCCEEDED",&#13;
-            "id": null,&#13;
-            "type": "UXEVENT"&#13;
-        },&#13;
-        "sourceEventSysId": null,&#13;
-        "targets": [&#13;
-        {&#13;
-            "broker": null,&#13;
-            "clientScript":&#13;
-            {&#13;
-                "sysId": "2c12538c87ef9510e942a9773cbb35c8"&#13;
-            },&#13;
-            "conditional": null,&#13;
-            "declarativeAction": null,&#13;
-            "event": null,&#13;
-            "operation": null,&#13;
-            "targetId": "clbbbuzkwhhaaccdjddbhhvsmddqnjaabb",&#13;
-            "type": "CLIENT_SCRIPT"&#13;
-        }]&#13;
-    }],&#13;
-    "inputValues":&#13;
-    {},&#13;
-    "readEvaluationMode": "EXPLICIT"&#13;
-}]</data>
+        <data>[
+    {
+        "definition": {
+            "id": "f953f22887971110e942a9773cbb3528",
+            "type": "REST"
+        },
+        "dependencies": {},
+        "elementId": "get_nextform_object",
+        "elementLabel": "Get NextForm Object",
+        "eventMappings": [
+            {
+                "eventMappingId": "claqfhhyzjjaabbhhcddbhhsddcqwkanv",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_uxf.DATA_FETCH_SUCCEEDED",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_uxf.DATA_FETCH_SUCCEEDED",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "ae52562d8757d110e942a9773cbb355a"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "claqfhhyzjjaabbhhdddbhhsduggherccjj",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            }
+        ],
+        "inputValues": {
+            "generator_input": {
+                "binding": {
+                    "address": [
+                        "formData"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "nextform_id": {
+                "binding": {
+                    "address": [
+                        "nextFormSysId"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            }
+        },
+        "readEvaluationMode": "EAGER"
+    },
+    {
+        "definition": {
+            "id": "d0d002ad8717d110e942a9773cbb35af",
+            "type": "REST"
+        },
+        "dependencies": {},
+        "elementId": "process_nextform_data",
+        "elementLabel": "Process NextForm Data",
+        "eventMappings": [
+            {
+                "eventMappingId": "clbbbvhhquhhaaccdwddbhhvffeeeyhhqaad",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_uxf.DATA_OP_INITIATED",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_uxf.DATA_OP_INITIATED",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "34d217cc87ef9510e942a9773cbb352e"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "clbbbvhhquhhaaccdxddbhhvshtwhhzsn",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            },
+            {
+                "eventMappingId": "clbbbuzkwhhaaccdiddbhhvdgizjbbth",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_uxf.DATA_OP_SUCCEEDED",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_uxf.DATA_OP_SUCCEEDED",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "2c12538c87ef9510e942a9773cbb35c8"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "clbbbuzkwhhaaccdjddbhhvsmddqnjaabb",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            }
+        ],
+        "inputValues": {},
+        "readEvaluationMode": "EXPLICIT"
+    }
+]</data>
         <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
         <dispatched_events>c4c5d3808723d510e942a9773cbb35ed,ed375bc08723d510e942a9773cbb35ac,ad479bc08723d510e942a9773cbb35ce,38871fc08723d510e942a9773cbb35b3</dispatched_events>
         <ext_controller_dep/>
         <extends/>
+        <extension_point/>
+        <form_factors>{}</form_factors>
         <handled_events>936839e58717d110e942a9773cbb35fe,f01f8a698757d110e942a9773cbb35fa,74c2a3f187571110e942a9773cbb359d,5b0f3ef68793d110e942a9773cbb353d,2baefaf68793d110e942a9773cbb3528,aebe3ef68793d110e942a9773cbb3576,a39e7af68793d110e942a9773cbb35e5,8f8e32f68793d110e942a9773cbb353a</handled_events>
         <interactions/>
         <interfaces/>
-        <internal_event_mappings>{&#13;
-  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_PREVIOUS": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "33a635a58717d110e942a9773cbb35a2"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_NEXT": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "33a635a58717d110e942a9773cbb35a2"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_FIRST": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "33a635a58717d110e942a9773cbb35a2"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_LAST": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "33a635a58717d110e942a9773cbb35a2"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_INDEX": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "33a635a58717d110e942a9773cbb35a2"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#RELOAD": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "dc4f4e698757d110e942a9773cbb351d"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#PROCESS": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "dc4f4e698757d110e942a9773cbb351d"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqfhdbaaaabbiieddbhhsbbzeeylbaa",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }],&#13;
-  "x_snc_nf.CTRL_NEXTFORM#SET_VALUE": [{&#13;
-    "broker": null,&#13;
-    "clientScript": {&#13;
-      "sysId": "53736ff187571110e942a9773cbb35c0"&#13;
-    },&#13;
-    "conditional": null,&#13;
-    "declarativeAction": null,&#13;
-    "event": null,&#13;
-    "operation": null,&#13;
-    "targetId": "claqfhdbaaaabbiieddbhhsbbzeeylbaa",&#13;
-    "type": "CLIENT_SCRIPT"&#13;
-  }]&#13;
+        <internal_event_mappings>{
+    "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_FIRST": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "33a635a58717d110e942a9773cbb35a2"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_INDEX": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "33a635a58717d110e942a9773cbb35a2"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_LAST": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "33a635a58717d110e942a9773cbb35a2"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_NEXT": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "33a635a58717d110e942a9773cbb35a2"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN_PREVIOUS": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "33a635a58717d110e942a9773cbb35a2"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#PROCESS": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "dc4f4e698757d110e942a9773cbb351d"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqfhdbaaaabbiieddbhhsbbzeeylbaa",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#RELOAD": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "dc4f4e698757d110e942a9773cbb351d"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+            "type": "CLIENT_SCRIPT"
+        }
+    ],
+    "x_snc_nf.CTRL_NEXTFORM#SET_VALUE": [
+        {
+            "broker": null,
+            "clientScript": {
+                "sysId": "53736ff187571110e942a9773cbb35c0"
+            },
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": null,
+            "targetId": "claqfhdbaaaabbiieddbhhsbbzeeylbaa",
+            "type": "CLIENT_SCRIPT"
+        }
+    ]
 }</internal_event_mappings>
-        <layout/>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [],
+        "root": null,
+        "rules": null,
+        "styles": {
+            "flex-direction": "column"
+        },
+        "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+        "type": "flex"
+    },
+    "version": "3.0.0"
+}</layout>
         <macroponent_dependencies/>
         <name>NextForm</name>
-        <output_prop_mapping>{&#13;
-	"currentScreenNumber": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"currentScreenNumber"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-    "currentScreenIndex": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"currentScreenIndex"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"screenCount": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"screenCount"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canGoFirst": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canGoFirst"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canGoLast": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canGoLast"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canGoNext": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canGoNext"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canGoPrevious": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canGoPrevious"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canGoIndex": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canGoIndex"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"isLoading": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"isLoading"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canReset": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canReset"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"canProcess": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"canProcess"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"isLoaded": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"isLoaded"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"isProcessed": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"isProcessed"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-    "currentSections": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"currentSections"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"fields": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"fields"&#13;
-			]&#13;
-		}&#13;
-	},&#13;
-	"nextFormData": {&#13;
-		"type": "STATE_BINDING",&#13;
-		"binding": {&#13;
-			"address": [&#13;
-				"nextFormData"&#13;
-			]&#13;
-		}&#13;
-    }&#13;
+        <output_prop_mapping>{
+    "canGoFirst": {
+        "binding": {
+            "address": [
+                "canGoFirst"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canGoIndex": {
+        "binding": {
+            "address": [
+                "canGoIndex"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canGoLast": {
+        "binding": {
+            "address": [
+                "canGoLast"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canGoNext": {
+        "binding": {
+            "address": [
+                "canGoNext"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canGoPrevious": {
+        "binding": {
+            "address": [
+                "canGoPrevious"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canProcess": {
+        "binding": {
+            "address": [
+                "canProcess"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "canReset": {
+        "binding": {
+            "address": [
+                "canReset"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "currentScreenIndex": {
+        "binding": {
+            "address": [
+                "currentScreenIndex"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "currentScreenNumber": {
+        "binding": {
+            "address": [
+                "currentScreenNumber"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "currentSections": {
+        "binding": {
+            "address": [
+                "currentSections"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "fields": {
+        "binding": {
+            "address": [
+                "fields"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "isLoaded": {
+        "binding": {
+            "address": [
+                "isLoaded"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "isLoading": {
+        "binding": {
+            "address": [
+                "isLoading"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "isProcessed": {
+        "binding": {
+            "address": [
+                "isProcessed"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "nextFormData": {
+        "binding": {
+            "address": [
+                "nextFormData"
+            ]
+        },
+        "type": "STATE_BINDING"
+    },
+    "screenCount": {
+        "binding": {
+            "address": [
+                "screenCount"
+            ]
+        },
+        "type": "STATE_BINDING"
+    }
 }</output_prop_mapping>
-        <props>[&#13;
-    {&#13;
-        "name": "nextFormSysId",&#13;
-        "label": "NextForm SysID",&#13;
-        "fieldType": "string",&#13;
-        "typeMetadata": null,&#13;
-        "valueType": "string",&#13;
-        "mandatory": true,&#13;
-        "defaultValue": "",&#13;
-        "description": "The unique identifier of the NextForm",&#13;
-        "readOnly": false,&#13;
-        "selectable": false&#13;
-    }&#13;
+        <props>[
+    {
+        "defaultValue": "",
+        "description": "The unique identifier of the NextForm",
+        "fieldType": "string",
+        "label": "NextForm SysID",
+        "mandatory": true,
+        "name": "nextFormSysId",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": {},
+        "description": "To be consumed by your generator",
+        "disabled": false,
+        "fieldType": "json",
+        "icon": "square-curly-bracket-outline",
+        "id": "formData",
+        "label": "Form data",
+        "mandatory": false,
+        "name": "formData",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": {},
+        "valueType": "json"
+    },
+    {
+        "defaultValue": {},
+        "description": "Any extra info needed by the processor",
+        "disabled": false,
+        "fieldType": "json",
+        "icon": "square-curly-bracket-outline",
+        "id": "metadata",
+        "label": "Metadata",
+        "mandatory": false,
+        "name": "metadata",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": {},
+        "valueType": "json"
+    }
 ]</props>
         <required_translations>[ ]</required_translations>
         <root_component/>
         <root_component_config/>
         <root_component_definition/>
         <schema_version>1.0.0</schema_version>
-        <state_properties>[&#13;
-    {&#13;
-        "name": "currentScreenNumber",&#13;
-        "label": "Current screen number",&#13;
-        "fieldType": "number",&#13;
-        "valueType": "number",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": 1&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "currentScreenIndex",&#13;
-        "label": "Current screen index",&#13;
-        "fieldType": "number",&#13;
-        "valueType": "number",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": 0&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "screenCount",&#13;
-        "label": "Screen count",&#13;
-        "fieldType": "number",&#13;
-        "valueType": "number",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": 1&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canGoNext",&#13;
-        "label": "Can go to the next screen",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canGoPrevious",&#13;
-        "label": "Can go to the previous screen",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canGoFirst",&#13;
-        "label": "Can go to the first screen",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canGoLast",&#13;
-        "label": "Can go to the last screen",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canGoIndex",&#13;
-        "label": "Can go to a specific screen index",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canReset",&#13;
-        "label": "Can reset the NextForm",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "canProcess",&#13;
-        "label": "Can process the NextForm",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "isLoading",&#13;
-        "label": "NextForm is loading",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": true&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "isLoaded",&#13;
-        "label": "NextForm has loaded",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "isProcessed",&#13;
-        "label": "NextForm has been processed",&#13;
-        "fieldType": "boolean",&#13;
-        "valueType": "boolean",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": false&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "currentSections",&#13;
-        "label": "Current sections",&#13;
-        "fieldType": "json",&#13;
-        "valueType": "json",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": null&#13;
-        }&#13;
-    },&#13;
-    {&#13;
-        "name": "fields",&#13;
-        "label": "Fields",&#13;
-        "fieldType": "json",&#13;
-        "valueType": "json",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": null&#13;
-        }&#13;
-    }, {&#13;
-        "name": "nextFormData",&#13;
-        "label": "NextForm data",&#13;
-        "fieldType": "json",&#13;
-        "valueType": "json",&#13;
-        "shape": "",&#13;
-        "description": "",&#13;
-        "initialValue": {&#13;
-            "type": "JSON_LITERAL",&#13;
-            "value": {&#13;
-                "nextFormData": []&#13;
-            }&#13;
-        }&#13;
-    }&#13;
+        <state_persistence_config/>
+        <state_properties>[
+    {
+        "description": "",
+        "fieldType": "number",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 1
+        },
+        "label": "Current screen number",
+        "name": "currentScreenNumber",
+        "shape": "",
+        "valueType": "number"
+    },
+    {
+        "description": "",
+        "fieldType": "number",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 0
+        },
+        "label": "Current screen index",
+        "name": "currentScreenIndex",
+        "shape": "",
+        "valueType": "number"
+    },
+    {
+        "description": "",
+        "fieldType": "number",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 1
+        },
+        "label": "Screen count",
+        "name": "screenCount",
+        "shape": "",
+        "valueType": "number"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can go to the next screen",
+        "name": "canGoNext",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can go to the previous screen",
+        "name": "canGoPrevious",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can go to the first screen",
+        "name": "canGoFirst",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can go to the last screen",
+        "name": "canGoLast",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can go to a specific screen index",
+        "name": "canGoIndex",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can reset the NextForm",
+        "name": "canReset",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "Can process the NextForm",
+        "name": "canProcess",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": true
+        },
+        "label": "NextForm is loading",
+        "name": "isLoading",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "NextForm has loaded",
+        "name": "isLoaded",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "boolean",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "label": "NextForm has been processed",
+        "name": "isProcessed",
+        "shape": "",
+        "valueType": "boolean"
+    },
+    {
+        "description": "",
+        "fieldType": "json",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "label": "Current sections",
+        "name": "currentSections",
+        "shape": "",
+        "valueType": "json"
+    },
+    {
+        "description": "",
+        "fieldType": "json",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "label": "Fields",
+        "name": "fields",
+        "shape": "",
+        "valueType": "json"
+    },
+    {
+        "description": "",
+        "fieldType": "json",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": {
+                "nextFormData": []
+            }
+        },
+        "label": "NextForm data",
+        "name": "nextFormData",
+        "shape": "",
+        "valueType": "json"
+    }
 ]</state_properties>
+        <style_config/>
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 01:05:01</sys_created_on>
         <sys_id>2fd4b4218753d110e942a9773cbb35a5</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>NextForm</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy/>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_ux_macroponent_2fd4b4218753d110e942a9773cbb35a5</sys_update_name>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-11-29 07:16:13</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-27 14:59:41</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=2fd4b4218753d110e942a9773cbb35a5"/>
 </record_update>

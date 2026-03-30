@@ -8,15 +8,25 @@
         <http_method>POST</http_method>
         <name>Process NextForm Data</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
-	
-	var requestBody = request.body;
-	var requestData = requestBody.data;
-	
+try {
+    var requestData = request.body.data;
+
     var nfId = requestData.nextform_id;
-    var nfData = requestData.nextform_data[0];
-	var result = new NFAPIHelper().process(nfId, nfData);
+    var nfData = requestData.nextform_data;
+    var result;
+    if (requestData && requestData.metadata) {
+        result = new NFAPIHelper().process(nfId, nfData, requestData.metadata);
+    } else {
+        result = new NFAPIHelper().process(nfId, nfData);
+    }
     response.setBody(result);
-	
+} catch (e) {
+
+        response.setStatus(500);
+        response.setBody({ error: 'Unknown error: ' + e, payload: JSON.stringify(request.body.data, null, 1)});
+	gs.error(JSON.stringify(e,null,1));
+}
+
 })(request, response);]]></operation_script>
         <operation_uri>/api/x_snc_nf/nextform/process</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
@@ -31,14 +41,14 @@
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 06:36:36</sys_created_on>
         <sys_id>2f818aad8717d110e942a9773cbb35e2</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>Process NextForm Data</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy/>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_ws_operation_2f818aad8717d110e942a9773cbb35e2</sys_update_name>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-12-01 13:16:46</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-30 14:20:37</sys_updated_on>
         <web_service_definition display_value="NextForm">d6f27ee487971110e942a9773cbb355d</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>

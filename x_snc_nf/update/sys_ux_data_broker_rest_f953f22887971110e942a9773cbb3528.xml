@@ -2,8 +2,9 @@
     <sys_ux_data_broker_rest action="INSERT_OR_UPDATE">
         <api_name>x_snc_nf.Generate NextForm Object</api_name>
         <api_url>/api/x_snc_nf/nextform/generate/{{nextform_id}}</api_url>
+        <batch_exclude>false</batch_exclude>
         <description>Generate a NextForm object for the NextForm unique identifier supplied</description>
-        <http_method>GET</http_method>
+        <http_method>POST</http_method>
         <mutates_server_data>false</mutates_server_data>
         <name>Generate NextForm Object</name>
         <output_schema/>
@@ -15,8 +16,17 @@
     "description": "Unique identifier of the NextForm",&#13;
     "fieldType": "string",&#13;
     "mandatory": true&#13;
+},&#13;
+{&#13;
+    "name": "generator_input",&#13;
+    "label": "Generator input JSON",&#13;
+    "description": "JSON for form generation",&#13;
+    "fieldType": "JSON",&#13;
+    "mandatory": false&#13;
 }]</props>
-        <request_body/>
+        <request_body>{&#13;
+  "input": {{generator_input}}&#13;
+}</request_body>
         <required_translations>[ {
   "message" : "NextForm Sys ID",
   "comment" : ""
@@ -29,11 +39,14 @@
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-18 07:39:26</sys_created_on>
         <sys_id>f953f22887971110e942a9773cbb3528</sys_id>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Generate NextForm Object</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy/>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_ux_data_broker_rest_f953f22887971110e942a9773cbb3528</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-26 20:04:04</sys_updated_on>
     </sys_ux_data_broker_rest>
     <sys_translated_text action="delete_multiple" query="documentkey=f953f22887971110e942a9773cbb3528"/>
 </record_update>

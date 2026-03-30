@@ -42,7 +42,7 @@
         <update_guid_history>dec2d1a9cb93d110aba362a1c37db30c:394130049</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Sample NextForm">26c16f0c8723d510e942a9773cbb35ec</sys_audit_delete>
+        <sys_audit_delete display_value="">26c16f0c8723d510e942a9773cbb35ec</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-29 08:00:28</sys_created_on>

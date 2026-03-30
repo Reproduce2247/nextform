@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="af470dad8753d110e942a9773cbb35dd" extends="sys_metadata" label="Processor" max_length="40" name="x_snc_nf_processor" type="collection">
-        <element label="Name" max_length="40" name="name" type="string"/>
         <element default="(function processNextFormResult (nfData) {&#13;&#10;&#13;&#10;})(nfData);" label="Script" mandatory="true" max_length="8000" name="script" type="script"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
     </element>
 </database>

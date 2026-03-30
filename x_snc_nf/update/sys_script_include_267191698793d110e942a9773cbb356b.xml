@@ -6,43 +6,51 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>NFAPIHelper script include definition</description>
+        <mobile_callable>false</mobile_callable>
         <name>NFAPIHelper</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var NFAPIHelper = Class.create();
 NFAPIHelper.prototype = {
     initialize: function() {},
-	generate: function (nextFormId) {
-		var nfGr = new GlideRecord('x_snc_nf_nextform');
-		
-		if (nfGr.get(nextFormId)) {
-			var generatorGr = nfGr.generator.getRefRecord();
-			var evaluator = new GlideScopedEvaluator();
-			var nf = evaluator.evaluateScript(generatorGr, 'script');
-			return nf.toJSON();
-		}
-	},
-	process: function process (nextFormId, nfData) {
-		var nfGr = new GlideRecord('x_snc_nf_nextform');
-		
-		if (nfGr.get(nextFormId)) {
-			var processorGr = nfGr.processor.getRefRecord();
-			var evaluator = new GlideScopedEvaluator();
-			evaluator.putVariable('nfData', nfData);
-			return evaluator.evaluateScript(processorGr, 'script');
-		}
-	},
+    generate: function(nextFormId, input) {
+        var nfGr = new GlideRecord('x_snc_nf_nextform');
+
+        if (nfGr.get(nextFormId)) {
+            var generatorGr = nfGr.generator.getRefRecord();
+            var evaluator = new GlideScopedEvaluator();
+            if (arguments.length > 1 && !gs.nil(input)) {
+                evaluator.putVariable('input', input);
+            }
+            var nf = evaluator.evaluateScript(generatorGr, 'script');
+            return nf.toJSON();
+        }
+    },
+    process: function process(nextFormId, nfData, metadata) {
+        var nfGr = new GlideRecord('x_snc_nf_nextform');
+
+        if (nfGr.get(nextFormId)) {
+            var processorGr = nfGr.processor.getRefRecord();
+            var evaluator = new GlideScopedEvaluator();
+            evaluator.putVariable('nfData', nfData);
+            if (arguments.length > 2) {
+                evaluator.putVariable('metadata', metadata);
+            }
+            return evaluator.evaluateScript(processorGr, 'script');
+        }
+    },
     type: 'NFAPIHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 03:05:24</sys_created_on>
         <sys_id>267191698793d110e942a9773cbb356b</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>NFAPIHelper</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_267191698793d110e942a9773cbb356b</sys_update_name>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-12-01 13:17:52</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-27 14:48:45</sys_updated_on>
     </sys_script_include>
 </record_update>
