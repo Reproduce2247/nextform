@@ -697,12 +697,13 @@ simple_name_values ******
     },
 
     _getOption: function(name, defaultVal) {
-
-        if (this.options) {
-            return this.options[name] ? this.options[name] : defaultVal;
+        if (!this.options) {
+            return defaultVal || null;
         }
-
-        return null;
+        if (Object.prototype.hasOwnProperty.call(this.options, name)) {
+            return this.options[name];
+        }
+        return defaultVal;
     },
 
     toJSON: function() {

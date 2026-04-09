@@ -10,6 +10,12 @@
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     var nfId = request.pathParams.nextform_id;
     var requestBody = request.body;
+    if (gs.nil(requestBody)) {
+        var err = new sn_ws_err.ServiceError();
+        err.setStatus(400);
+        err.setMessage('Request body is required');
+        throw err;
+    }
     var requestData = requestBody.data;
     var input;
     if (requestData && Object.prototype.hasOwnProperty.call(requestData, 'input')) {

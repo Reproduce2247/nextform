@@ -15,8 +15,6 @@
  */
 function handler({ api, event, helpers, imports }) {
 
-    console.log('Nextform Processing Completed');
-
     api.setState('canProcess', false);
     api.setState('isLoading', false);
     api.setState('isProcessed', true);

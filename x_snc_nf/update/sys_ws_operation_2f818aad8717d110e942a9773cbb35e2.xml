@@ -8,25 +8,24 @@
         <http_method>POST</http_method>
         <name>Process NextForm Data</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
-try {
-    var requestData = request.body.data;
-
-    var nfId = requestData.nextform_id;
-    var nfData = requestData.nextform_data;
-    var result;
-    if (requestData && requestData.metadata) {
-        result = new NFAPIHelper().process(nfId, nfData, requestData.metadata);
-    } else {
-        result = new NFAPIHelper().process(nfId, nfData);
+    var body = request.body;
+    if (gs.nil(body) || gs.nil(body.data)) {
+        var badReq = new sn_ws_err.ServiceError();
+        badReq.setStatus(400);
+        badReq.setMessage('Request body must include a data object');
+        throw badReq;
     }
+    var requestData = body.data;
+    var nfId = requestData.nextform_id;
+    if (gs.nil(nfId)) {
+        var missingId = new sn_ws_err.ServiceError();
+        missingId.setStatus(400);
+        missingId.setMessage('nextform_id is required in request body data');
+        throw missingId;
+    }
+    var nfData = requestData.nextform_data;
+    var result = new NFAPIHelper().process(nfId, nfData, requestData.metadata);
     response.setBody(result);
-} catch (e) {
-
-        response.setStatus(500);
-        response.setBody({ error: 'Unknown error: ' + e, payload: JSON.stringify(request.body.data, null, 1)});
-	gs.error(JSON.stringify(e,null,1));
-}
-
 })(request, response);]]></operation_script>
         <operation_uri>/api/x_snc_nf/nextform/process</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>

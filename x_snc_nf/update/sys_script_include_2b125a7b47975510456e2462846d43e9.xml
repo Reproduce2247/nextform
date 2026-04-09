@@ -11,7 +11,7 @@
         <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var NextRow = Class.create();
 NextRow.prototype = new Array;
-Object.assign(NextScreen.prototype, {
+Object.assign(NextRow.prototype, {
     type: 'NextRow'
 });]]></script>
         <sys_class_name>sys_script_include</sys_class_name>

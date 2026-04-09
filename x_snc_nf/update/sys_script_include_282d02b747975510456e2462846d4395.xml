@@ -23,26 +23,45 @@ NextForm.prototype = {
     },
 
     addRow: function() {
+        if (this.screens.length === 0) {
+            this.addScreen();
+        }
         this.screens[this.screens.length - 1].push(new NextRow());
         return this;
     },
 
     addColumn: function() {
+        if (this.screens.length === 0) {
+            this.addScreen();
+        }
         var currentScreen = this.screens[this.screens.length - 1];
+        if (currentScreen.length === 0) {
+            this.addRow();
+            currentScreen = this.screens[this.screens.length - 1];
+        }
         var currentRow = currentScreen[currentScreen.length - 1];
         currentRow.push(new NextColumn());
         return this;
     },
 
     addField: function(field) {
-        var fieldJson = field.toJSON();
-
+        field.toJSON();
         this.fields.push(field);
-
+        if (this.screens.length === 0) {
+            this.addScreen();
+        }
         var currentScreen = this.screens[this.screens.length - 1];
+        if (currentScreen.length === 0) {
+            this.addRow();
+            currentScreen = this.screens[this.screens.length - 1];
+        }
         var currentRow = currentScreen[currentScreen.length - 1];
+        if (currentRow.length === 0) {
+            this.addColumn();
+            currentScreen = this.screens[this.screens.length - 1];
+            currentRow = currentScreen[currentScreen.length - 1];
+        }
         currentRow[currentRow.length - 1].push(field);
-
         return this;
     },
 

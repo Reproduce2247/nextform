@@ -12,32 +12,76 @@
         <script><![CDATA[var NFAPIHelper = Class.create();
 NFAPIHelper.prototype = {
     initialize: function() {},
+
+    _serviceError: function(status, message, detail) {
+        var err = new sn_ws_err.ServiceError();
+        err.setStatus(status);
+        err.setMessage(message);
+        if (!gs.nil(detail)) {
+            err.setDetail(String(detail));
+        }
+        throw err;
+    },
+
     generate: function(nextFormId, input) {
+        if (gs.nil(nextFormId)) {
+            this._serviceError(400, 'nextform_id is required');
+        }
         var nfGr = new GlideRecord('x_snc_nf_nextform');
-
-        if (nfGr.get(nextFormId)) {
-            var generatorGr = nfGr.generator.getRefRecord();
-            var evaluator = new GlideScopedEvaluator();
-            if (arguments.length > 1 && !gs.nil(input)) {
-                evaluator.putVariable('input', input);
-            }
-            var nf = evaluator.evaluateScript(generatorGr, 'script');
+        if (!nfGr.get(nextFormId)) {
+            this._serviceError(404, 'NextForm record not found', nextFormId);
+        }
+        var generatorGr = nfGr.generator.getRefRecord();
+        if (gs.nil(generatorGr) || gs.nil(generatorGr.sys_id)) {
+            this._serviceError(400, 'NextForm has no generator configured', nextFormId);
+        }
+        var evaluator = new GlideScopedEvaluator();
+        if (!gs.nil(input)) {
+            evaluator.putVariable('input', input);
+        }
+        var nf;
+        try {
+            nf = evaluator.evaluateScript(generatorGr, 'script');
+        } catch (ex) {
+            gs.error('NextForm generator script failed: ' + ex);
+            this._serviceError(500, 'Generator script failed', String(ex));
+        }
+        if (gs.nil(nf) || typeof nf.toJSON !== 'function') {
+            this._serviceError(500, 'Generator script must return an object with a toJSON method');
+        }
+        try {
             return nf.toJSON();
+        } catch (ex2) {
+            gs.error('NextForm form serialization failed: ' + ex2);
+            this._serviceError(500, 'Form serialization failed', String(ex2));
         }
     },
-    process: function process(nextFormId, nfData, metadata) {
-        var nfGr = new GlideRecord('x_snc_nf_nextform');
 
-        if (nfGr.get(nextFormId)) {
-            var processorGr = nfGr.processor.getRefRecord();
-            var evaluator = new GlideScopedEvaluator();
-            evaluator.putVariable('nfData', nfData);
-            if (arguments.length > 2) {
-                evaluator.putVariable('metadata', metadata);
-            }
+    process: function(nextFormId, nfData, metadata) {
+        if (gs.nil(nextFormId)) {
+            this._serviceError(400, 'nextform_id is required');
+        }
+        var nfGr = new GlideRecord('x_snc_nf_nextform');
+        if (!nfGr.get(nextFormId)) {
+            this._serviceError(404, 'NextForm record not found', nextFormId);
+        }
+        var processorGr = nfGr.processor.getRefRecord();
+        if (gs.nil(processorGr) || gs.nil(processorGr.sys_id)) {
+            this._serviceError(400, 'NextForm has no processor configured', nextFormId);
+        }
+        var evaluator = new GlideScopedEvaluator();
+        evaluator.putVariable('nfData', nfData);
+        if (!gs.nil(metadata)) {
+            evaluator.putVariable('metadata', metadata);
+        }
+        try {
             return evaluator.evaluateScript(processorGr, 'script');
+        } catch (ex) {
+            gs.error('NextForm processor script failed: ' + ex);
+            this._serviceError(500, 'Processor script failed', String(ex));
         }
     },
+
     type: 'NFAPIHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>

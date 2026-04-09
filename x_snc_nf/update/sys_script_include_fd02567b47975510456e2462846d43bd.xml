@@ -13,11 +13,11 @@
 NextScreen.prototype = new Array;
 Object.assign(NextScreen.prototype, {
     
-    sysId: '1234',
-    caption: 'test_section',
-    captionDisplay: 'Test Section Caption',
+    sysId: 'placeholder-screen-sys_id',
+    caption: 'placeholder-section',
+    captionDisplay: 'Section caption (placeholder)',
     id: '0',
-    label: 'Test Section',
+    label: 'Untitled section (placeholder)',
     defaultSection: true,
     expanded: true,
 
