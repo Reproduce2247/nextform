@@ -17,14 +17,23 @@ function handler({ api, event, helpers, imports }) {
 
     var nextFormData = api.data.get_nextform_object.output.result;
     var screenData = nextFormData.screens;
-    var fieldData = nextFormData.fields;
+    var fieldData = nextFormData.fields || {};
 
     var screenCount = screenData.length;
     var currentSections = screenData[0];
     var currentScreenIndex = 0;
     var currentScreenNumber = currentScreenIndex + 1;
-    
-    api.setState('nextFormData', nextFormData);
+
+    // Keep screens (and other layout) in nextFormData; store fields only in `fields` state
+    // to avoid duplicating the full field map.
+    var layoutOnly = {};
+    Object.keys(nextFormData).forEach(function (key) {
+        if (key !== 'fields') {
+            layoutOnly[key] = nextFormData[key];
+        }
+    });
+
+    api.setState('nextFormData', layoutOnly);
     api.setState('currentScreenIndex', currentScreenIndex);
     api.setState('currentScreenNumber', currentScreenNumber);
     api.setState('screenCount', screenCount);

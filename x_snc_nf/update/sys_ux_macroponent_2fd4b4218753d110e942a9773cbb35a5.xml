@@ -651,9 +651,7 @@
         "fieldType": "json",
         "initialValue": {
             "type": "JSON_LITERAL",
-            "value": {
-                "nextFormData": []
-            }
+            "value": null
         },
         "label": "NextForm data",
         "name": "nextFormData",

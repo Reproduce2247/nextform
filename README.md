@@ -131,7 +131,7 @@ The NextForm Controller manages the state of the form, and outputs properties to
 
 | Property            | Type    | Description                                                                                                                   |
 |---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------|
-| nextFormData        | JSON    | A JSON representation of the NextForm object returned by the Generator script.                                                |
+| nextFormData        | JSON    | Layout data from the Generator (e.g. `screens`); the `fields` map is not duplicated here—it is exposed only via the `fields` output. |
 | fields              | JSON    | All the fields of the NextForm in their JSON representation. Fed into the fields property of the Form component.              |
 | currentSections     | JSON    | The current screen of the NextForm in JSON representation. Fed into the sections property of the Form component.              |
 | currentScreenNumber | Integer | The 1-indexed (starting at 1) form of the current screen number. Used for UI display of the current screen.                   |
