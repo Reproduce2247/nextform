@@ -21,7 +21,10 @@ NextField.prototype = {
         this.fieldType = type;
         this.label = label;
         this.name = name;
-        this.options = options;
+        this.options = options || {};
+
+
+        this.options.nfValidation = this._normalizeNfValidationForClient(this.options.nfValidation);
 
         switch (this.fieldType) {
             case "string":
@@ -77,8 +80,7 @@ NextField.prototype = {
 
     _buildCurrency: function() {
         return this._buildFieldWithCommon({
-            "maxLength": this._getOption('maxLength', 40),
-            "minLength": this._getOption('minLength', 40),///not sure this does anything
+            "maxLength": this._getOption('maxLength', null),
             "defaultCurrency": null,
             "type": "currency",
             "internalType": "currency",
@@ -89,7 +91,6 @@ NextField.prototype = {
     _buildDecimal: function() {
         return this._buildFieldWithCommon({
             "maxLength": this._getOption('maxLength', 40),
-            "minLength": this._getOption('minLength', 40),///not sure this does anything
             "type": "decimal",
             "internalType": "decimal"
         });
@@ -216,8 +217,8 @@ NextField.prototype = {
 
     _buildReference: function() {
         return this._buildFieldWithCommon({
-            "type": "glide_list",
-            "internalType": "glide_list",
+            "type": "reference", ///was glide_list. Validate
+            "internalType": "reference",
             "reference": this._getOption('reference', null),
             "referenceQualifier": this._getOption('referenceQualifier', null),
             "useReferenceQualifier": this._getOption('useReferenceQualifier', 'simple'),
@@ -395,7 +396,6 @@ NextField.prototype = {
     _buildString: function() {
         return this._buildFieldWithCommon({
             "maxLength": this._getOption('maxLength', 40),
-            "minLength": this._getOption('minLength', 40),///not sure this does anything
             "type": "string",
             "internalType": "string"
         });
@@ -405,14 +405,13 @@ NextField.prototype = {
         return this._buildFieldWithCommon({
             "choices": this.options.choices,
             "type": "choice",
-            "internalType": "integer"
+            "internalType": "string" ///was integer, validate
         });
     },
 
     _buildInteger: function() {
         return this._buildFieldWithCommon({
             "maxLength": this._getOption('maxLength', 40),
-            "minLength": this._getOption('minLength', 40),///not sure this does anything
             "type": "integer",
             "internalType": "integer"
         });
@@ -631,7 +630,7 @@ simple_name_values ******
 
     ///not yet working as it should be. Goal is a text-only element like catalog "label"
     _buildLabel: function() {
-        return this._buildFieldWithCommon({
+        return {
             name: this.name,
             label: this.label,
             type: "string", //"documentation_field",///container? xml? formatter? annotation?
@@ -643,14 +642,14 @@ simple_name_values ******
             mandatory: false,
             canWrite: false,
             canCreate: false,
-            canRead: true,			
+            canRead: true,
             // Rendering
             value: this._getOption("value", ""),
             displayValue: this._getOption("displayValue", ""),
 
             // Explicitly opt out of data handling
             isDataField: false
-        });
+        };
     },
 
     _buildAnnotation: function() {
@@ -666,7 +665,7 @@ simple_name_values ******
             canWrite: false,
             canCreate: false,
             canRead: true,
-			text: this._getOption("displayValue", ""),
+            text: this._getOption("displayValue", ""),
             // Rendering
             defer: false,
 
@@ -674,35 +673,88 @@ simple_name_values ******
             isDataField: false
         };
     },
+    /**
+     * Optional generator-supplied rules for client-side validation (nfValidation).
+     * Pass as options.nfValidation — only JSON-safe fields are copied.
+     * Use regexPattern (string); compiled RegExp objects are not serialized to the client.
+     */
+    _normalizeNfValidationForClient: function(nv) {
+        var o = {};
+        if (!nv || typeof nv !== 'object') {
+            return o;
+        }
+        if (nv.readOnly === true || nv.readOnly === 'true') {
+            return {
+                readOnly: true,
+                readonly: true
+            };
+        }
+        o.readOnly = false;
+        if (Array.isArray(nv.allowedValues)) {
+            o.allowedValues = nv.allowedValues;
+        }
+        if (!gs.nil(nv.maxLength)) {
+            var ml = parseInt(nv.maxLength, 10);
+            if (!isNaN(ml)) {
+                o.maxLength = ml;
+            }
+        }
+        if (!gs.nil(nv.minLength)) {
+            var nl = parseInt(nv.minLength, 10);
+            if (!isNaN(nl)) {
+                o.minLength = nl;
+            }
+        }
+        o.mandatory = nv.mandatory === true || nv.mandatory === 'true';
+        if (nv.type) {
+            o.type = String(nv.type).toLowerCase();
+        }
+        if (typeof nv.regexPattern === 'string' && nv.regexPattern.length) {
+            o.regexPattern = nv.regexPattern;
+        }
+        return o;
+    },
 
     _buildFieldWithCommon: function(obj) {
-        return Object.assign({
+        const readOnly = this._getOption('readOnly', false);
+        const field = Object.assign({
             "name": this.name,
             "label": this.label,
             "defer": true,
             "visible": true,
-            "readonly": this._getOption('readonly', false),
+            "readonly": readOnly,
             "mandatory": this._getOption('mandatory', false),
             "isEncrypted": false,
             "encryptionContext": "",
-            "sys_readonly": this._getOption('sys_readonly', this._getOption('readonly', false)),
-            "canWrite": !this._getOption('readonly', false),
+            "sys_readonly": this._getOption('sys_readonly', readOnly),
+            "canWrite": !readOnly,
             "canRead": true,
             "canCreate": true,
             "fieldHint": this._getOption('fieldHint', null),
             "fieldLayout": this._getOption("fieldLayout", {
-                "layout": this._getOption("fieldLayout.layout", "vertical")///untested
+                "layout": this._getOption("layout", "vertical")
             }),
             "isGlideVar": false,
             "value": this._getOption('value', ""),
             "displayValue": this._getOption('displayValue', ""),
             "originalValue": this._getOption('value', "")
         }, obj);
+
+        if (Object.keys(this.options.nfValidation).length !== 0) {
+            field.nfValidation = this.options.nfValidation;
+        }
+        return field;
     },
 
     _getOption: function(name, defaultVal) {
         if (!this.options) {
             return defaultVal || null;
+        }
+        //validation options override field options to avoid conflicts
+        if (['maxLength', 'minLength', 'readOnly', 'readonly', 'mandatory'].indexOf(name) !== -1) {
+            if (Object.prototype.hasOwnProperty.call(this.options.nfValidation, name)) {
+                return this.options.nfValidation[name];
+            }
         }
         if (Object.prototype.hasOwnProperty.call(this.options, name)) {
             return this.options[name];
@@ -724,13 +776,13 @@ simple_name_values ******
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-28 07:11:54</sys_created_on>
         <sys_id>400d8e7747975510456e2462846d43a9</sys_id>
-        <sys_mod_count>72</sys_mod_count>
+        <sys_mod_count>74</sys_mod_count>
         <sys_name>NextField</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_400d8e7747975510456e2462846d43a9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-04-30 15:21:45</sys_updated_on>
+        <sys_updated_on>2026-05-01 20:56:22</sys_updated_on>
     </sys_script_include>
 </record_update>
