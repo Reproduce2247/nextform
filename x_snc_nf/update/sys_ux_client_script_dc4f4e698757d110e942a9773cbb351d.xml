@@ -23,23 +23,33 @@ function handler({
     if (event && typeof event.name === 'string' && event.name.indexOf('RELOAD') !== -1) {
         return;
     }
-
-    var nf = imports['x_snc_nf.NextFormUtil']();
-    var vr = nf.nfRevalidateAllFields(api.state.fields);
-    api.setState('fields', vr.fields);
-    nf.nfEmitUxfRecordFormFieldMessages(api, vr.fields);
-    if (!vr.allOk) {
-        var onLast = api.state.currentScreenNumber === api.state.screenCount;
-        api.setState('canProcess', onLast && !api.state.isProcessed && vr.allOk);
-        return;
+    const skipValidation = !!(event && event.payload && event.payload.skipValidation === true);
+    let vr;
+    let nf;
+    let fields;
+    if (skipValidation) {
+        fields = api.state.fields;
+    } else {
+        nf = imports['x_snc_nf.NextFormUtil']();
+        vr = nf.nfRevalidateAllFields(api.state.fields);
+        fields = vr.fields;
+    }
+    api.setState('fields', fields);
+    if (!skipValidation) {
+        nf.nfEmitUxfRecordFormFieldMessages(api, vr.fields);
+        if (!vr.allOk) {
+            const onLast = api.state.currentScreenNumber === api.state.screenCount;
+            api.setState('canProcess', onLast && !api.state.isProcessed && vr.allOk);
+            return;
+        }
     }
 
     api.emit('CTRL_NEXTFORM#PROCESSING_STARTED');
 
-    var nfData = {};
+    let nfData = {};
 
-     Object.keys(vr.fields).forEach(function(key) {
-        var field = vr.fields[key];
+    Object.keys(fields).forEach(function(key) {
+        var field = fields[key];
         if (field.isDataField !== false && (!api.context.props.processEditedOnly || (Object.hasOwn(field, 'originalValue') && field.originalValue !== field.value))) {
             nfData[field.name] = {
                 name: field.name,
@@ -49,11 +59,11 @@ function handler({
         }
     });
 
-    var payload = {
+    let payload = {
         nextform_id: api.context.props.nextFormSysId,
         nextform_data: JSON.stringify(nfData)
     };
-    var meta;
+    let meta;
     if (api.context.props.metadata) {
         meta = {};
         Object.keys(api.context.props.metadata).forEach(key => {
@@ -69,14 +79,14 @@ function handler({
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 07:35:16</sys_created_on>
         <sys_id>dc4f4e698757d110e942a9773cbb351d</sys_id>
-        <sys_mod_count>38</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>Submit for Processing</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy/>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_ux_client_script_dc4f4e698757d110e942a9773cbb351d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-05-05 15:24:53</sys_updated_on>
+        <sys_updated_on>2026-05-05 16:35:19</sys_updated_on>
         <target>macroponent</target>
         <type>default</type>
     </sys_ux_client_script>
